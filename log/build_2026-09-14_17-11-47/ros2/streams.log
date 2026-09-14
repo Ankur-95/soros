@@ -1,0 +1,25 @@
+[1.533s] Invoking command in '/home/ankur-95/soros/build/ros2': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/ankur-95/soros/build/ros2/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ankur-95/soros/install/ros2/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/ankur-95/soros/build/ros2/build --no-deps symlink_data
+[1.914s] running develop
+[2.132s] running egg_info
+[2.133s] creating ros2.egg-info
+[2.153s] writing ros2.egg-info/PKG-INFO
+[2.153s] writing dependency_links to ros2.egg-info/dependency_links.txt
+[2.153s] writing entry points to ros2.egg-info/entry_points.txt
+[2.154s] writing requirements to ros2.egg-info/requires.txt
+[2.154s] writing top-level names to ros2.egg-info/top_level.txt
+[2.154s] writing manifest file 'ros2.egg-info/SOURCES.txt'
+[2.203s] reading manifest file 'ros2.egg-info/SOURCES.txt'
+[2.204s] writing manifest file 'ros2.egg-info/SOURCES.txt'
+[2.228s] running build_ext
+[2.228s] Creating /home/ankur-95/soros/install/ros2/lib/python3.12/site-packages/ros2.egg-link (link to .)
+[2.229s] Installing handpub script to /home/ankur-95/soros/install/ros2/lib/ros2
+[2.229s] Installing handsub script to /home/ankur-95/soros/install/ros2/lib/ros2
+[2.230s] 
+[2.230s] Installed /home/ankur-95/soros/build/ros2
+[2.230s] running symlink_data
+[2.230s] creating /home/ankur-95/soros/install/ros2/share/ament_index
+[2.230s] creating /home/ankur-95/soros/install/ros2/share/ament_index/resource_index
+[2.230s] creating /home/ankur-95/soros/install/ros2/share/ament_index/resource_index/packages
+[2.231s] symbolically linking /home/ankur-95/soros/build/ros2/resource/ros2 -> /home/ankur-95/soros/install/ros2/share/ament_index/resource_index/packages
+[2.231s] symbolically linking /home/ankur-95/soros/build/ros2/package.xml -> /home/ankur-95/soros/install/ros2/share/ros2
+[2.276s] Invoked command in '/home/ankur-95/soros/build/ros2' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/ankur-95/soros/build/ros2/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ankur-95/soros/install/ros2/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/ankur-95/soros/build/ros2/build --no-deps symlink_data

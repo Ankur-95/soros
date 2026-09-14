@@ -1,6 +1,6 @@
 from setuptools import find_packages, setup
 
-package_name = 'ros2'
+package_name = 'two_handlandmarker'
 
 setup(
     name=package_name,
@@ -24,8 +24,8 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'handpub = ros2.hand_pub:main',
-            'handsub = ros2.hand_sub:main',
+            'handpub = two_handlandmarker.handpub:main',
+            'handsub = two_handlandmarker.handsub:main',
         ],
     },
 )

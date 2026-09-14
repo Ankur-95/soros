@@ -1,0 +1,3 @@
+[console_scripts]
+handpub = two_handlandmarker.handpub:main
+handsub = two_handlandmarker.handsub:main

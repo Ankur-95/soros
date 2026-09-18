@@ -24,8 +24,7 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'handpub = two_handlandmarker.handpub:main',
-            'handsub = two_handlandmarker.handsub:main',
+            'mediapipe_node = two_handlandmarker.mediapipe_node:main',
         ],
     },
 )

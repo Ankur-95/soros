@@ -1,3 +1,3 @@
 [console_scripts]
-handpub = ros2.hand_pub:main
-handsub = ros2.hand_sub:main
+handpub = one_pubsub.hand_pub:main
+handsub = one_pubsub.hand_sub:main

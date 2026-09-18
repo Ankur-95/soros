@@ -4,6 +4,3 @@ source;share/two_handlandmarker/hook/pythonpath.sh
 source;share/two_handlandmarker/hook/ament_prefix_path.ps1
 source;share/two_handlandmarker/hook/ament_prefix_path.dsv
 source;share/two_handlandmarker/hook/ament_prefix_path.sh
-source;../../build/two_handlandmarker/share/two_handlandmarker/hook/pythonpath_develop.ps1
-source;../../build/two_handlandmarker/share/two_handlandmarker/hook/pythonpath_develop.dsv
-source;../../build/two_handlandmarker/share/two_handlandmarker/hook/pythonpath_develop.sh

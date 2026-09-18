@@ -1,0 +1,37 @@
+[0.508s] Invoking command in '/home/ankur-95/soros/build/two_handlandmarker': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/ankur-95/soros/build/two_handlandmarker/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ankur-95/soros/install/two_handlandmarker/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/ankur-95/soros/build/two_handlandmarker/build
+[0.697s] running develop
+[0.810s] Removing /home/ankur-95/soros/install/two_handlandmarker/lib/python3.12/site-packages/two-handlandmarker.egg-link (link to .)
+[0.831s] Invoked command in '/home/ankur-95/soros/build/two_handlandmarker' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/ankur-95/soros/build/two_handlandmarker/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ankur-95/soros/install/two_handlandmarker/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/ankur-95/soros/build/two_handlandmarker/build
+[0.832s] Invoking command in '/home/ankur-95/soros/two_handlandmarker': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/ankur-95/soros/build/two_handlandmarker/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ankur-95/soros/install/two_handlandmarker/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/two_handlandmarker build --build-base /home/ankur-95/soros/build/two_handlandmarker/build install --record /home/ankur-95/soros/build/two_handlandmarker/install.log --install-scripts $base/lib/two_handlandmarker --single-version-externally-managed install_data --force
+[1.002s] running egg_info
+[1.012s] writing ../build/two_handlandmarker/two_handlandmarker.egg-info/PKG-INFO
+[1.012s] writing dependency_links to ../build/two_handlandmarker/two_handlandmarker.egg-info/dependency_links.txt
+[1.013s] writing entry points to ../build/two_handlandmarker/two_handlandmarker.egg-info/entry_points.txt
+[1.013s] writing requirements to ../build/two_handlandmarker/two_handlandmarker.egg-info/requires.txt
+[1.013s] writing top-level names to ../build/two_handlandmarker/two_handlandmarker.egg-info/top_level.txt
+[1.034s] reading manifest file '../build/two_handlandmarker/two_handlandmarker.egg-info/SOURCES.txt'
+[1.035s] adding license file 'LICENSE'
+[1.035s] writing manifest file '../build/two_handlandmarker/two_handlandmarker.egg-info/SOURCES.txt'
+[1.035s] running build
+[1.035s] running build_py
+[1.035s] creating /home/ankur-95/soros/build/two_handlandmarker/build
+[1.036s] creating /home/ankur-95/soros/build/two_handlandmarker/build/lib
+[1.036s] creating /home/ankur-95/soros/build/two_handlandmarker/build/lib/two_handlandmarker
+[1.036s] copying two_handlandmarker/__init__.py -> /home/ankur-95/soros/build/two_handlandmarker/build/lib/two_handlandmarker
+[1.036s] copying two_handlandmarker/mediapipe_node.py -> /home/ankur-95/soros/build/two_handlandmarker/build/lib/two_handlandmarker
+[1.036s] running install
+[1.040s] running install_lib
+[1.051s] creating /home/ankur-95/soros/install/two_handlandmarker/lib/python3.12/site-packages/two_handlandmarker
+[1.051s] copying /home/ankur-95/soros/build/two_handlandmarker/build/lib/two_handlandmarker/__init__.py -> /home/ankur-95/soros/install/two_handlandmarker/lib/python3.12/site-packages/two_handlandmarker
+[1.051s] copying /home/ankur-95/soros/build/two_handlandmarker/build/lib/two_handlandmarker/mediapipe_node.py -> /home/ankur-95/soros/install/two_handlandmarker/lib/python3.12/site-packages/two_handlandmarker
+[1.051s] byte-compiling /home/ankur-95/soros/install/two_handlandmarker/lib/python3.12/site-packages/two_handlandmarker/__init__.py to __init__.cpython-312.pyc
+[1.051s] byte-compiling /home/ankur-95/soros/install/two_handlandmarker/lib/python3.12/site-packages/two_handlandmarker/mediapipe_node.py to mediapipe_node.cpython-312.pyc
+[1.052s] running install_data
+[1.052s] copying resource/two_handlandmarker -> /home/ankur-95/soros/install/two_handlandmarker/share/ament_index/resource_index/packages
+[1.053s] copying package.xml -> /home/ankur-95/soros/install/two_handlandmarker/share/two_handlandmarker
+[1.053s] running install_egg_info
+[1.065s] Copying ../build/two_handlandmarker/two_handlandmarker.egg-info to /home/ankur-95/soros/install/two_handlandmarker/lib/python3.12/site-packages/two_handlandmarker-0.0.0-py3.12.egg-info
+[1.065s] running install_scripts
+[1.142s] Installing mediapipe_node script to /home/ankur-95/soros/install/two_handlandmarker/lib/two_handlandmarker
+[1.142s] writing list of installed files to '/home/ankur-95/soros/build/two_handlandmarker/install.log'
+[1.162s] Invoked command in '/home/ankur-95/soros/two_handlandmarker' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/ankur-95/soros/build/two_handlandmarker/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ankur-95/soros/install/two_handlandmarker/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/two_handlandmarker build --build-base /home/ankur-95/soros/build/two_handlandmarker/build install --record /home/ankur-95/soros/build/two_handlandmarker/install.log --install-scripts $base/lib/two_handlandmarker --single-version-externally-managed install_data --force

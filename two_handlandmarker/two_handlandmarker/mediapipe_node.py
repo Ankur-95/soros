@@ -1,9 +1,11 @@
 import cv2
+import os
 import rclpy 
 from rclpy.node import Node 
 from std_msgs.msg import Float32MultiArray
 import time 
 import mediapipe as mp
+import numpy as np
 from mediapipe.tasks import python
 from mediapipe.tasks.python import vision
 
@@ -23,35 +25,81 @@ class Handpub(Node):
         timer_period = 0.033  # Roughly 30 Hz
         self.timer = self.create_timer(timer_period, self.timer_callback)
         self.get_logger().info('Hand Publisher Node has been started successfully.')
+        
+        # 2. Join it directly to your task file name
+        model_path = '/home/ankur-95/soros/two_handlandmarker/two_handlandmarker/hand_landmarker.task'
+        
+        # 3. Log it so you can see exactly where it is looking on your system
+        self.get_logger().info(f"Looking for model asset at: {model_path}")
 
         options = vision.HandLandmarkerOptions(
-            base_options=python.BaseOptions(model_asset_path='hand_landmarker.task'),
+            # Pass the absolute path variable here!
+            base_options=python.BaseOptions(model_asset_path=model_path),
             running_mode=vision.RunningMode.LIVE_STREAM,
             num_hands=1,
-            result_callback=self.mp_callback 
+            result_callback=self.mp_callback  
         )
         self.detector = vision.HandLandmarker.create_from_options(options)
+        self.frame_count = 0
 
     def timer_callback(self):
-        # 2. Grab exactly ONE single frame per callback fire. No while loop!
-        ret, frame = self.cap.read()
-        if not ret:
-            self.get_logger().warn("Can't receive frame (stream end?). Skipping this tick...")
-            return  # Exit early so we don't crash
-        rgb_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-        mp_image = mp.Image(image_format=mp.ImageFormat.SRGB, data=rgb_frame)
-        timestamp_ms = int(time.time_ns()//1_000_000)  # Convert nanoseconds to milliseconds
-        self.detector.detect_async(mp_image, timestamp_ms)
-        # 3. For testing, show the frame visually
-        cv2.imshow('frame', frame)
-        cv2.waitKey(1) # Crucial: cv2.imshow requires waitKey(1) to actually render the window!
-        
-        # Temporary placeholder logic just to see the loop running
-        self.get_logger().info('Frame captured successfully!')
+             # 2. Grab exactly ONE single frame per callback fire. No while loop!
+            ret, frame = self.cap.read()
+            if not ret:
+                self.get_logger().warn("Can't receive frame (stream end?). Skipping this tick...")
+                return  # Exit early so we don't crash
+            rgb_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+            mp_image = mp.Image(image_format=mp.ImageFormat.SRGB, data=rgb_frame)
+            timestamp_ms = int(time.time_ns()//1_000_000)  # Convert nanoseconds to milliseconds
+            self.detector.detect_async(mp_image, timestamp_ms)
+            # Those were the primary steps and are no more needed.
+                # # 3. For testing, show the frame visually
+                # cv2.imshow('frame', frame)
+                # cv2.waitKey(1) # Crucial: cv2.imshow requires waitKey(1) to actually render the window!
+                
+                # # Temporary placeholder logic just to see the loop running
+
+
+                # # self.get_logger().info('Frame captured successfully!')
+           
+
 
     def mp_callback(self, result: vision.HandLandmarkerResult, output_image: mp.Image, timestamp_ms: int):
         # This fires automatically whenever MediaPipe finishes running tracking on a frame
-        self.get_logger().info("AI callback triggered!")
+        self.frame_count += 1
+        # 1. Force convert the MediaPipe frame into a standard, raw NumPy array
+        canvas = np.array(output_image.numpy_view())
+
+        # 2. Now OpenCV will accept it perfectly without crashing!
+        canvas = cv2.cvtColor(canvas, cv2.COLOR_RGB2BGR)
+        flat_data = []
+        if result.hand_landmarks:
+            hand_landmarks = result.hand_landmarks[0]
+            for landmark in hand_landmarks:
+                flat_data.append(float(landmark.x))
+                flat_data.append(float(landmark.y))
+                flat_data.append(float(landmark.z))
+
+                # Green Dots
+                h,w, _ = canvas.shape
+                cx, cy = int(landmark.x *w), int(landmark.y *h)
+                cv2.circle(canvas, (cx, cy), 5,(0,255,0),cv2.FILLED)
+        else:
+            self.get_logger().info(f"No hand landmarks detected in frame {self.frame_count} at timestamp {timestamp_ms} ms.")
+            flat_data = [0.0] * 63  # Fill with zeros if no landmarks are detected
+
+        msg = Float32MultiArray()    
+        self.publisher_.publish(msg)
+        if self.frame_count % 30 == 0:  # Log every 30 frames
+            hand_found = "TRACKING" if result.hand_landmarks else "NOT TRACKING"
+            self.get_logger().info(f"Status: {hand_found}| Published array length: {len(msg.data)}")
+
+        cv2.imshow('MediaPipe Tracking', canvas)
+        cv2.waitKey(1)  # Ensure the window updates
+
+
+        
+
 
 def main(args=None):
     rclpy.init(args=args)
@@ -62,11 +110,15 @@ def main(args=None):
     except KeyboardInterrupt:
         pass
     finally:
+        if hasattr(handpub, 'detector'):
+            handpub.detector.close()
+
         # 4. Clean exit strategy: Release the webcam when Ctrl+C is hit
         handpub.cap.release()
         cv2.destroyAllWindows()
         handpub.destroy_node()
-        rclpy.shutdown()
+        if rclpy.ok():
+            rclpy.shutdown()
 
 if __name__ == '__main__':
     main()

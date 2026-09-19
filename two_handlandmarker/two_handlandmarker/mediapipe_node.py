@@ -32,6 +32,8 @@ class Handpub(Node):
         # 3. Log it so you can see exactly where it is looking on your system
         self.get_logger().info(f"Looking for model asset at: {model_path}")
 
+
+
         options = vision.HandLandmarkerOptions(
             # Pass the absolute path variable here!
             base_options=python.BaseOptions(model_asset_path=model_path),

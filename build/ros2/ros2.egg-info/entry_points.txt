@@ -1,3 +1,0 @@
-[console_scripts]
-handpub = one_pubsub.hand_pub:main
-handsub = one_pubsub.hand_sub:main

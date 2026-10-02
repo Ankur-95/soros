@@ -4,4 +4,12 @@ log/
 .pytest_cache/
 __pycache__/
 *.pyc
+LICENSE
+setup.py
+setup.cfg
+package.xml
+.vscode
+resources/
+test
+
 
